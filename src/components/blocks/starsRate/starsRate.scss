@@ -63,3 +63,12 @@
      }
 }
 
+
+@media (max-width: 559px) {
+  .starsRate__starsContainer {
+    max-width: 176px;
+  }
+  .starsRate__container {
+    margin-bottom: 16px;
+  }
+}
