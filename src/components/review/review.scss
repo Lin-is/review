@@ -1,0 +1,265 @@
+.review__container {
+  background-color:white;
+  max-width: 560px;
+  max-height: 655px;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-style: normal;
+  margin: 0px auto;
+  border-radius: 16px;
+  margin-bottom: 50px;
+}
+
+.review__decorateLine {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 1px;
+  border: none;
+  background-color: #EAECF0;
+  border-radius: 1px;
+}
+
+.review__wrapper {
+  background-color: white;
+  width: 496px;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.review__header {
+  width: 100%;
+  max-height: 56px;
+  min-height: 52px;
+  border-radius: 16px 16px 0px 0px;
+  padding: 17px 16px 14px 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review-header__closeReview {
+  width: 18px;
+  height: 18px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  margin:0;
+  margin-top: -1px;
+  margin-right: 3px;
+  padding: 0;
+  box-sizing: border-box;
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 7.3px;
+    left: 0;
+    height: 2px;
+    transform: rotate(45deg);
+    background-color: #7F899E;
+    border-radius: 2px;
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+.review-header__text, .review__reviewTitle {
+  font-size: 16px;
+  line-height: 24px; 
+  color: #3C3C3C;
+  font-weight: 600;
+}
+
+.review-header__text {
+  margin: 0;
+  padding: 0;
+}
+
+.review__authorInfoContainer {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  margin-top: 22px;
+}
+
+.review__authorPhoto {
+  width: 102px;
+  height: 68px;
+  border-radius: 6px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: block;
+  margin-top: 2px;
+  margin-right: 20px;
+}
+
+.review__authorInfo {
+  width: 374px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-top: 15px;
+}
+
+.review__reviewTitle {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3px;
+}
+.review__authorName {
+  color: #50586A;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+
+.review__form {
+  box-sizing: border-box;
+}
+
+.review-form__starsContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 32px;
+  box-sizing: border-box;
+}
+
+.review-form__commentContainer {
+  width: 496px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-form__comment {
+  resize: none;
+  width: 100%;
+  height: 100px;
+  background-color: #FAFAFA;
+  border: 1px solid #EAECF0;
+  box-sizing: border-box;
+  border-radius: 6px; 
+  margin-bottom: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 24px;
+  color: #7F899E;
+  padding: 11px;
+  padding-top: 12px;
+}
+
+.review-form__counter {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: rgb(127, 137, 158);
+}
+
+.review-form__photoContainer {
+  max-width: 432px;
+  box-sizing: border-box;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: row;
+}
+
+.review-form__addPhotoBtn, .review-form__photoCard  {
+  height: 80px;
+  width: 80px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-right: 8px;
+}
+
+.review-form__addPhotoBtn {
+  position: relative;
+  background-color: #F3F4F6;
+  border: 1px solid #EAECF0;
+  cursor: pointer;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 38px;
+    height: 13.5px;
+    width: 2px;
+    background-color: #9AA2B7;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 37.5px;
+    left: 32px;
+    height: 2.5px;
+    width: 14px;
+    background-color: #9AA2B7;
+  }
+}
+
+.review-form__photoCard {
+  position: relative;
+  overflow: hidden;
+  &:last-child {
+    margin-right: 0px;
+  }
+  &:hover {
+    .review-form__photoDeleteButton {
+      display: block;
+    }
+  }
+}
+
+.review-form__photo {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.review-form__photoDeleteButton {
+  display: none;
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  background: center/ 14px 18px no-repeat url(/img/delete_24px.png) rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.review__footer {
+  height: 68px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: flex-end;
+  padding: 16px;
+  padding-top: 14px;
+}

@@ -1,0 +1,24 @@
+@import "./assets/fonts/fonts.scss";
+
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0px auto;
+  background-color: #EBEDF0;
+}
+
+#App {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-style: normal;
+  width: 100%;
+  position: relative;
+  margin: 0px auto;
+  background-color: #EBEDF0;
+}
+
+.showReview {
+  font-family: 'Montserrat';
+  font-weight: 500;
+}
