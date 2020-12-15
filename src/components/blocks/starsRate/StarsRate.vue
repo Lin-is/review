@@ -4,67 +4,67 @@
     <div class="starsRate__starsContainer">
       <input
         type="radio"
-        :name="`${title}-rating`"
+        :name="`${title}-rating-${index}`"
         class="starsRate__starInput"
-        :id="`${title}-rating-5`"
+        :id="`${title}-rating-${index}-5`"
         v-bind:value="5"
         :checked="value === 5"
       />
       <label
         class="starsRate__star"
-        :for="`${title}-rating-5`"
+        :for="`${title}-rating-${index}-5`"
         v-bind:value="5"
       ></label>
       <input
         type="radio"
-        :name="`${title}-rating`"
+        :name="`${title}-rating-${index}`"
         class="starsRate__starInput"
-        :id="`${title}-rating-4`"
+        :id="`${title}-rating-${index}-4`"
         v-bind:value="4"
         :checked="value === 4"
       />
       <label
         class="starsRate__star"
-        :for="`${title}-rating-4`"
+        :for="`${title}-rating-${index}-4`"
         v-bind:value="4"
       ></label>
       <input
         type="radio"
-        :name="`${title}-rating`"
+        :name="`${title}-rating-${index}`"
         class="starsRate__starInput"
-        :id="`${title}-rating-3`"
+        :id="`${title}-rating-${index}-3`"
         v-bind:value="3"
         :checked="value === 3"
       />
       <label
         class="starsRate__star"
-        :for="`${title}-rating-3`"
+        :for="`${title}-rating-${index}-3`"
         v-bind:value="3"
       ></label>
       <input
         type="radio"
-        :name="`${title}-rating`"
+        :name="`${title}-rating-${index}`"
         class="starsRate__starInput"
-        :id="`${title}-rating-2`"
+        :id="`${title}-rating-${index}-2`"
         v-bind:value="2"
         :checked="value === 2"
       />
       <label
         class="starsRate__star"
-        :for="`${title}-rating-2`"
+        :for="`${title}-rating-${index}-2`"
         v-bind:value="2"
       ></label>
       <input
         type="radio"
-        :name="`${title}-rating`"
+        :name="`${title}-rating-${index}`"
         class="starsRate__starInput"
-        :id="`${title}-rating-1`"
+        :id="`${title}-rating-${index}-1`"
         v-bind:value="1"
         :checked="value === 1"
       />
       <label
         class="starsRate__star"
-        :for="`${title}-rating-1`"
+        :for="`${title}-rating-${index}-1`"
         v-bind:value="1"
       ></label>
     </div>
@@ -81,6 +81,10 @@ export default {
     rate: {
       type: Number,
       required: false
+    },
+    index: {
+      type: Number,
+      required: true
     }
   },
   data() {
