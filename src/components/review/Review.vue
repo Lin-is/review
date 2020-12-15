@@ -1,10 +1,14 @@
 <template>
-  <section class="review__container">
+  <section class="review__container" :class="{ open: openState }">
     <header class="review__header">
       <hr class="review-header__decorateLine" />
       <h2 class="review-header__text" v-if="screenWidth < 560">Новый отзыв</h2>
       <h2 class="review-header__text" v-else>Мой отзыв</h2>
-      <button class="review-header__closeReview" type="button"></button>
+      <button
+        class="review-header__closeReview"
+        @click="closeReview"
+        type="button"
+      ></button>
     </header>
     <hr class="review__decorateLine" />
     <div class="review__wrapper">
@@ -36,7 +40,11 @@
 
         <header class="review-form__middleHeader">
           <h2 class="review-header__text">Новый отзыв</h2>
-          <button class="review-header__closeReview" type="button"></button>
+          <button
+            class="review-header__closeReview"
+            @click="closeReview"
+            type="button"
+          ></button>
           <hr class="review-header__decorateLine" />
         </header>
 
@@ -79,6 +87,12 @@ import ActionButton from "@/components/blocks/actionButton/ActionButton.vue";
 import StarsRate from "@/components/blocks/starsRate/StarsRate.vue";
 export default {
   name: "review",
+  props: {
+    openState: {
+      type: Boolean,
+      required: true
+    }
+  },
   data() {
     return {
       screenWidth: "",
@@ -123,6 +137,9 @@ export default {
           this.addedPhotos.splice(4, 1);
         }
       }
+    },
+    closeReview() {
+      this.$emit("closeReview");
     }
   },
   unmounted() {

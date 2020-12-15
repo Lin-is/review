@@ -5,9 +5,15 @@
   font-family: 'Montserrat';
   font-weight: 500;
   font-style: normal;
-  margin: 0px auto;
+  margin: 100px auto;
   border-radius: 16px;
-  margin-bottom: 50px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.review__container.open {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .review__decorateLine {
