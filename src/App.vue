@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <ActionButton
+    text="Показать отзыв"
+    class="showReview"
+    :class="{ hidden: openReview }"
+    @click="
+      {
+        openReview = true;
+      }
+    "
+  />
+  <Review
+    v-bind:openState="openReview"
+    @closeReview="
+      {
+        openReview = false;
+      }
+    "
+  ></Review>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Review from "@/components/review/Review.vue";
+import ActionButton from "@/components/blocks/actionButton/ActionButton.vue";
 export default {
-  name: "App",
-  components: {
-    HelloWorld
-  }
+  data() {
+    return {
+      openReview: false
+    };
+  },
+  components: { Review, ActionButton }
 };
 </script>
-
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "@/main.scss";
 </style>
