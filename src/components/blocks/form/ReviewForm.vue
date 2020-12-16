@@ -21,7 +21,7 @@
       <h2 class="review-header__text">Новый отзыв</h2>
       <button
         class="review-header__closeReview"
-        @click="closeReview"
+        @click="$emit('closeReview')"
         type="button"
       ></button>
       <hr class="review-header__decorateLine" />
@@ -39,14 +39,32 @@
       </label>
     </div>
     <div class="review-form__photoContainer">
-      <button class="review-form__addPhotoBtn" type="button"></button>
+      <input
+        type="file"
+        id="review-form__photoInput"
+        ref="photoInput"
+        class="review-form__photoInput"
+        accept="image/*"
+        @change="downloadPhoto()"
+      />
+      <lable
+        for="review-form__photoInput"
+        class="review-form__addPhotoBtn"
+        @click="addPhoto"
+        :class="{ hidden: addedPhotos.length >= 5 && screenWidth > 559 }"
+      ></lable>
       <div
         class="review-form__photoCard"
         v-for="(photo, index) in addedPhotos"
         :key="index"
       >
         <img :src="photo" alt="photo" class="review-form__photo" />
-        <button class="review-form__photoDeleteButton" type="button"></button>
+        <button
+          class="review-form__photoDeleteButton"
+          :data-photo="photo"
+          @click="deletePhoto(photo)"
+          type="button"
+        ></button>
       </div>
     </div>
   </form>
@@ -88,10 +106,35 @@ export default {
     window.addEventListener("resize", this.updateWidth);
     this.updateWidth();
   },
+  emits: ["closeReview"],
   methods: {
     updateWidth() {
       this.screenWidth = window.innerWidth;
-      this.updatePhotos();
+      // this.updatePhotos();
+    },
+    addPhoto() {
+      this.$refs.photoInput.click();
+    },
+    deletePhoto(photo) {
+      const photoIndex = this.addedPhotos.indexOf(photo);
+      if (photoIndex !== -1) {
+        this.addedPhotos.splice(photoIndex, 1);
+      }
+    },
+    downloadPhoto() {
+      let downloadedFile = this.$refs.photoInput.files[0];
+
+      let reader = new FileReader();
+      reader.addEventListener(
+        "load",
+        function() {
+          this.addedPhotos.push(reader.result);
+        }.bind(this),
+        false
+      );
+      if (/\.(jpe?g|png|gif)$/i.test(downloadedFile.name)) {
+        reader.readAsDataURL(downloadedFile);
+      }
     },
     updatePhotos() {
       if (this.screenWidth) {
@@ -101,9 +144,6 @@ export default {
           this.addedPhotos.splice(4, 1);
         }
       }
-    },
-    closeReview() {
-      this.$emit("closeReview");
     }
   },
   unmounted() {

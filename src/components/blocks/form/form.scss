@@ -154,7 +154,9 @@
     }
   }
 }
-
+.review-form__photoInput{
+  display: none;
+}
 .review-form__photo {
   display: block;
   position: absolute;
@@ -299,4 +301,8 @@
   .review__footer {
     padding-top: 12px;
   }
+}
+
+.hidden {
+  display: none;
 }

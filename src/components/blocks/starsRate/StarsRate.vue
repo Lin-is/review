@@ -97,7 +97,11 @@ export default {
   },
   watch: {
     value: function() {
-      console.log(this.value);
+      this.$emit("rateValue", {
+        index: this.index,
+        title: this.title,
+        value: this.value
+      });
     }
   }
 };
